@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airpad — Brand Studio 360°</title>
+<meta name="description" content="Étude de cas Airpad : film de marque aérien réalisé par Brand Studio 360°. Une vidéo immersive qui capture l'essence du mouvement et de la précision.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Hero plein écran (style intro) ── */
+  .proj-hero-fs {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .proj-hero-fs video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Voile gradient bas → transparence haute */
+  .proj-hero-fs__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,10,10,.72) 0%,
+      rgba(10,10,10,.18) 45%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  /* Textes en bas à gauche */
+  .proj-hero-fs__text {
+    position: absolute;
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    left: clamp(1.4rem, 5vw, 5rem);
+    z-index: 2;
+    color: #fff;
+  }
+  .proj-hero-fs__text .back {
+    display: inline-block;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 1.2rem;
+    transition: color .3s;
+  }
+  .proj-hero-fs__text .back:hover { color: #fff; }
+  .proj-hero-fs__text .eyebrow {
+    display: block;
+    color: rgba(255,255,255,.5);
+    margin-bottom: .4rem;
+  }
+  .proj-hero-fs__text h1 {
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  /* Bouton son positionné bas-droite dans le hero */
+  .proj-hero-fs .vid-sound-btn {
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    right: clamp(1.4rem, 5vw, 5rem);
+    left: auto;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" aria-label="Navigation principale">
+  <div class="wrap"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projets.html" class="active">Réalisations</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>info@brandstudio360.ch</span></div>
+</nav>
+
+<!-- HERO PLEIN ÉCRAN -->
+<section class="proj-hero-fs">
+  <video id="vid-airpad-hero" src="assets/videos/airpad.mp4"
+         muted playsinline preload="auto" loop autoplay></video>
+  <div class="proj-hero-fs__veil"></div>
+
+  <div class="proj-hero-fs__text">
+    <a class="back" href="projets.html">← Tous les projets</a>
+    <span class="eyebrow">Projet</span>
+    <h1>Airpad — Film aérien</h1>
+  </div>
+
+  <!-- Bouton son bas-droite -->
+  <button class="vid-sound-btn" id="vid-airpad-hero-btn" aria-label="Activer le son">
+    <svg id="vid-airpad-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg id="vid-airpad-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+</section>
+
+<!-- BODY -->
+<section class="section">
+  <div class="wrap proj-body">
+    <div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le contexte</span>
+        <h2 style="margin-top:.6rem">Une vision du ciel, une marque en mouvement.</h2>
+        <p>Airpad est une marque qui incarne la précision, la liberté et la maîtrise du mouvement aérien. Pour asseoir son positionnement haut de gamme, elle avait besoin d'un film de marque à la hauteur de son ambition : une production qui transcende le simple reportage pour devenir une expérience visuelle à part entière.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">La solution</span>
+        <h2 style="margin-top:.6rem">Un film immersif entre ciel et sol.</h2>
+        <p>Brand Studio 360° a imaginé et réalisé un film de marque qui joue avec les perspectives, les textures et la lumière naturelle. Chaque plan a été soigneusement composé pour alterner immensité et précision — du grand angle aérien au détail au sol. La bande sonore, pensée en harmonie avec l'image, amplifie la sensation de liberté et d'excellence propre à la marque.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le résultat</span>
+        <h2 style="margin-top:.6rem">Une identité visuelle qui prend de la hauteur.</h2>
+        <p>Le film est aujourd'hui le pilier de la communication d'Airpad sur tous ses canaux : site web, réseaux sociaux et présentations commerciales. Il a permis de crédibiliser l'offre auprès d'une clientèle exigeante et de générer un fort engagement organique dès sa mise en ligne. Un film qui parle avant même que la marque prenne la parole.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="reveal">
+        <span class="eyebrow">Détails du projet</span>
+        <div class="proj-meta" style="margin-top:1.4rem">
+          <div class="proj-meta__row"><span>Client</span><span>Airpad</span></div>
+          <div class="proj-meta__row"><span>Année</span><span>2025</span></div>
+          <div class="proj-meta__row"><span>Secteur</span><span>Technologie &amp; Mobilité</span></div>
+          <div class="proj-meta__row"><span>Format</span><span>Film de marque · 16:9</span></div>
+          <div class="proj-meta__row"><span>Durée</span><span>3 semaines</span></div>
+          <div class="proj-meta__row"><span>Diffusion</span><span>Web · Réseaux sociaux · B2B</span></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Video Production</span>
+          <span class="tag">Film de marque</span>
+          <span class="tag">Prises de vue aériennes</span>
+          <span class="tag">Montage</span>
+        </div>
+        <div style="margin-top:2.2rem">
+          <a class="btn btn--dark" href="configurateur.html?service=video-production">Un projet similaire ? <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="wrap">
+    <div class="proj-gallery">
+      <img class="wide reveal" src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1600&q=75" alt="Airpad — vue aérienne">
+      <img class="reveal" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=75" alt="Drone en vol">
+      <img class="reveal d1" src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=900&q=75" alt="Prise de vue aérienne">
+    </div>
+  </div>
+</section>
+
+<section class="section bg-2">
+  <div class="wrap cta-band reveal">
+    <h2>Envie d'un film pour votre marque ?</h2>
+    <p>Estimez votre projet vidéo en quelques clics, ou parlons-en directement.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--accent" href="configurateur.html?service=video-production">Estimer mon projet <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
+      <div><h4>Navigation</h4><div class="footer-links"><a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="services.html">Services</a><a href="projets.html">Réalisations</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html?service=video-production">Estimer mon projet</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span><span>Stratégie · Création · Déploiement</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Son — vidéo locale Airpad hero */
+(function () {
+  const vid    = document.getElementById('vid-airpad-hero');
+  const btn    = document.getElementById('vid-airpad-hero-btn');
+  const iMute  = document.getElementById('vid-airpad-mute');
+  const iSound = document.getElementById('vid-airpad-sound');
+  if (!vid || !btn) return;
+  let muted = true;
+
+  btn.addEventListener('click', function () {
+    muted = !muted;
+    vid.muted = muted;
+    iMute.style.display  = muted ? '' : 'none';
+    iSound.style.display = muted ? 'none' : '';
+  });
+
+  /* Démarrage son auto si arrivée depuis la page projets */
+  if (sessionStorage.getItem('airpad_sound')) {
+    sessionStorage.removeItem('airpad_sound');
+    vid.muted = false;
+    muted = false;
+    iMute.style.display  = 'none';
+    iSound.style.display = '';
+  }
+})();
+</script>
+</body>
+</html>

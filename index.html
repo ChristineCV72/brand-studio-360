@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Studio 360° — Agence créative</title>
+<meta name="description" content="Brand Studio 360° crée des marques cohérentes, visibles et mémorables. Branding, web design, vidéo, photo, réseaux sociaux et interior concept sous un même toit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <button class="burger burger--light" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" aria-label="Navigation principale">
+  <div class="wrap">
+    <ul>
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projets.html">Réalisations</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="nav-foot">
+    <span>Brand Studio 360° — Agence créative</span>
+    <span>info@brandstudio360.ch</span>
+  </div>
+</nav>
+
+<!-- HERO VIDÉO PLEIN ÉCRAN -->
+<section class="hero-video">
+  <div class="hero-video__frame">
+    <!-- Vidéo de fond -->
+    <video
+      id="hero-video"
+      src="assets/videos/hero-accueil.mp4"
+      muted playsinline preload="auto" loop autoplay
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;z-index:1;">
+    </video>
+    <!-- Texte animé transparent (par-dessus la vidéo) + musique -->
+    <video
+      id="hero-text"
+      src="assets/videos/hero-texte.webm"
+      muted playsinline preload="auto" loop autoplay
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;z-index:2;pointer-events:none;">
+    </video>
+    <!-- Bouton son -->
+    <button class="yt-sound-btn" id="yt-hero-btn" aria-label="Activer le son">
+      <svg id="yt-hero-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+      <svg id="yt-hero-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+    </button>
+  </div>
+  <div class="hero-video__logo">
+    <img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°">
+  </div>
+  <div class="hero-video__scroll"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- SERVICES -->
+<section class="section bg-2">
+  <div class="wrap">
+    <div class="section-head row reveal">
+      <div>
+        <span class="eyebrow">Ce que nous faisons</span>
+        <h2>Une expertise complète,<br>sous un même toit.</h2>
+      </div>
+      <a class="link-underline" href="services.html">Tous les services</a>
+    </div>
+
+    <div class="svc-list">
+      <a class="svc-row reveal" href="service-web-design.html">
+        <span class="svc-row__num">01</span>
+        <span class="svc-row__title">Web Design</span>
+        <span class="svc-row__desc">Des sites élégants, pensés pour convertir et refléter l'identité de marque.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-brand-identity.html">
+        <span class="svc-row__num">02</span>
+        <span class="svc-row__title">Brand Identity</span>
+        <span class="svc-row__desc">Logo, charte et univers visuel : une marque forte et mémorable.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-video-production.html">
+        <span class="svc-row__num">03</span>
+        <span class="svc-row__title">Video Production</span>
+        <span class="svc-row__desc">Films de marque, interviews et contenus en images et en mouvement.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-brand-photography.html">
+        <span class="svc-row__num">04</span>
+        <span class="svc-row__title">Brand Photography</span>
+        <span class="svc-row__desc">Portraits, packshots et ambiances : des visuels qui racontent votre marque.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-social-media.html">
+        <span class="svc-row__num">05</span>
+        <span class="svc-row__title">Social Media Management</span>
+        <span class="svc-row__desc">Stratégie, création et diffusion de contenus pour vos réseaux sociaux.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-animation-produit.html">
+        <span class="svc-row__num">06</span>
+        <span class="svc-row__title">Animation Produit</span>
+        <span class="svc-row__desc">Motion design, animations 3D et vidéos produit cinématiques pour sublimer vos créations.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-interior-design.html">
+        <span class="svc-row__num">07</span>
+        <span class="svc-row__title">Interior Design &amp; Concept</span>
+        <span class="svc-row__desc">Scénographie et design d'espace pour donner vie à votre marque physique.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATEUR TEASER -->
+<section class="section">
+  <div class="wrap">
+    <div class="estim-teaser reveal">
+      <div>
+        <span class="eyebrow">Configurateur de devis</span>
+        <h2>Estimez votre projet en quelques clics.</h2>
+        <p>Un parcours simple et transparent. Sélectionnez vos besoins et obtenez une estimation de prix en temps réel — sans engagement.</p>
+        <div style="margin-top:2rem"><a class="btn btn--accent" href="configurateur.html">Démarrer mon estimation <span class="arrow">→</span></a></div>
+      </div>
+      <div class="estim-teaser__steps">
+        <div class="estim-step"><b>1</b> Type de projet</div>
+        <div class="estim-step"><b>2</b> Vos besoins</div>
+        <div class="estim-step"><b>3</b> Options</div>
+        <div class="estim-step"><b>4</b> Estimation en temps réel</div>
+        <div class="estim-step"><b>5</b> Coordonnées</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS SÉLECTIONNÉS -->
+<section class="section bg-2">
+  <div class="wrap">
+    <div class="section-head row reveal">
+      <div>
+        <span class="eyebrow">Projets sélectionnés</span>
+        <h2>Notre travail<br>en quelques images.</h2>
+      </div>
+      <a class="link-underline" href="projets.html">Tous les projets</a>
+    </div>
+    <div class="proj-grid">
+      <a class="proj-card span-8 reveal" href="projet-fr-coiffure.html">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=70" alt="F.R Coiffure">
+        <div class="proj-card__meta"><div class="proj-card__cat">Brand Identity · Website</div><div class="proj-card__name">F.R Coiffure</div></div>
+      </a>
+      <a class="proj-card span-4 tall reveal d1" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=70" alt="Maison horlogère">
+        <div class="proj-card__meta"><div class="proj-card__cat">Photography</div><div class="proj-card__name">Maison Horlogère</div></div>
+      </a>
+      <a class="proj-card span-4 reveal" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=70" alt="Cave & Vins">
+        <div class="proj-card__meta"><div class="proj-card__cat">Social Media</div><div class="proj-card__name">Cave &amp; Vins</div></div>
+      </a>
+      <a class="proj-card span-8 reveal d1" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=70" alt="Concept Store">
+        <div class="proj-card__meta"><div class="proj-card__cat">Interior Design</div><div class="proj-card__name">Concept Store</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="wrap cta-band reveal">
+    <h2>Une marque à faire rayonner ?</h2>
+    <p>Parlons de votre projet. De la stratégie au déploiement, nous vous accompagnons de A à Z.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--dark" href="contact.html">Nous contacter <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="configurateur.html">Créer mon devis</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°">
+        <p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="services.html">Services</a>
+          <a href="projets.html">Réalisations</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-links">
+          <a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a>
+          <a href="tel:+41793595411">+41 79 359 54 11</a>
+          <a href="configurateur.html">Estimer mon projet</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span>
+      <span>Stratégie · Création · Déploiement</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Redirige vers l'intro à chaque nouvelle session */
+(function(){
+  if (!sessionStorage.getItem('intro_done')) {
+    window.location.replace('intro.html');
+  }
+})();
+</script>
+<script>
+/* Bouton son — active la musique du texte animé (les vidéos bouclent via l'attribut loop) */
+(function(){
+  const text  = document.getElementById('hero-text');
+  const btn   = document.getElementById('yt-hero-btn');
+  const iMute = document.getElementById('yt-hero-mute');
+  const iSound= document.getElementById('yt-hero-sound');
+  if(!text||!btn) return;
+  let muted = true;
+  btn.addEventListener('click', function(){
+    muted = !muted;
+    text.muted = muted;
+    if(!muted){ text.play().catch(function(){}); }
+    iMute.style.display  = muted ? '' : 'none';
+    iSound.style.display = muted ? 'none' : '';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Studio 360°</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --accent: #EFDA19;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ══ Vidéo plein écran ══ */
+  #bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 2s var(--ease-out);
+  }
+  #bg-video.visible { opacity: 1; }
+
+  /* ══ Overlay : voile permanent léger ══ */
+  #overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, .52);
+    transition: background 1.4s var(--ease-out);
+  }
+  /* Quand le son démarre : overlay s'allège un peu */
+  body.state-sound #overlay { background: rgba(0, 0, 0, .28); }
+
+  /* ══ Scène centrale ══ */
+  #stage {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.8rem;
+  }
+
+  /* ══ Bouton logo ══ */
+  #logo-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 1.4s var(--ease-out) .5s,
+      transform 1.4s var(--ease-out) .5s;
+  }
+  #logo-btn.in   { opacity: 1; transform: none; }
+  #logo-btn.fade { opacity: 0; transform: scale(.94); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+
+  /* ── Logo image ── */
+  #logo-img {
+    width: clamp(160px, 20vw, 280px);
+    height: auto;
+    /* État 1 : blanc discret */
+    filter: brightness(0) invert(1);
+    opacity: .85;
+    transition:
+      filter    1s var(--ease-out),
+      opacity   1s var(--ease-out),
+      transform .5s var(--ease-out);
+    will-change: transform, filter;
+  }
+
+  /* Hover état 1 */
+  body:not(.state-sound) #logo-btn:hover #logo-img {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  /* État 2 : son activé → logo #EFDA19 (palette site) */
+  body.state-sound #logo-img {
+    filter: brightness(0) invert(0.45) sepia(1) saturate(450%) hue-rotate(16deg);
+    opacity: 1;
+  }
+  body.state-sound #logo-btn:hover #logo-img {
+    transform: scale(1.06);
+  }
+
+  /* ── Hint texte ── */
+  #hint {
+    font-size: .68rem;
+    letter-spacing: .38em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .45);
+    user-select: none;
+    transition: opacity .8s var(--ease-out), color .8s var(--ease-out);
+    animation: blink 3s ease-in-out infinite;
+  }
+  /* État 2 : hint change — #EFDA19 palette exacte */
+  body.state-sound #hint {
+    color: #EFDA19;
+    animation: none;
+    opacity: .85;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: .3; }
+    50%       { opacity: .7; }
+  }
+
+  /* ══ Rideau final (fade out vers accueil) ══ */
+  #curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.1s var(--ease-out);
+  }
+  #curtain.in { opacity: 1; pointer-events: auto; }
+</style>
+</head>
+<body>
+
+<video id="bg-video" src="assets/videos/airpad.mp4" muted playsinline preload="auto" loop></video>
+<div id="overlay"></div>
+
+<div id="stage">
+  <button id="logo-btn" aria-label="Entrer dans le site">
+    <img id="logo-img" src="assets/logo/logo-blanc.png" alt="Brand Studio 360°">
+    <span id="hint">Cliquez pour commencer</span>
+  </button>
+</div>
+
+<div id="curtain"></div>
+
+<script>
+(function () {
+
+  const video   = document.getElementById('bg-video');
+  const btn     = document.getElementById('logo-btn');
+  const hint    = document.getElementById('hint');
+  const curtain = document.getElementById('curtain');
+  let   step    = 0; // 0 = muet | 1 = son actif | 2 = sortie
+
+  /* ── Démarrage de la vidéo en muet ── */
+  function startVideo() {
+    video.play().catch(() => {});
+    video.classList.add('visible');
+    btn.classList.add('in');
+  }
+
+  if (video.readyState >= 2) {
+    startVideo();
+  } else {
+    video.addEventListener('canplay', startVideo, { once: true });
+  }
+
+  /* ── Gestion des clics ── */
+  btn.addEventListener('click', function () {
+
+    /* Premier clic : activer le son */
+    if (step === 0) {
+      step = 1;
+      video.muted  = false;
+      video.volume = 1;
+      video.play().catch(() => {
+        video.muted = true; // navigateur bloque le son → fallback muet
+        video.play();
+      });
+      document.body.classList.add('state-sound');
+      hint.textContent = 'Cliquez pour entrer';
+      return;
+    }
+
+    /* Deuxième clic : sortie cinématographique */
+    if (step === 1) {
+      step = 2;
+      btn.classList.add('fade');
+      // léger délai puis rideau + redirection
+      setTimeout(function () {
+        curtain.classList.add('in');
+        setTimeout(function () {
+          sessionStorage.setItem('intro_done', '1');
+          window.location.href = 'index.html';
+        }, 1100);
+      }, 300);
+    }
+
+  });
+
+})();
+</script>
+</body>
+</html>

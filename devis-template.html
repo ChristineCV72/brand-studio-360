@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devis — Brand Studio 360°</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #EFDA19;
+    --dark:   #16140f;
+    --bg:     #FAFAFA;
+    --line:   #e8e4dc;
+    --text:   #1a1814;
+    --soft:   #6b6457;
+    --radius: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #eceae4;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Toolbar (masquée à l'impression) ── */
+  .toolbar {
+    max-width: 900px;
+    margin: 0 auto 1.4rem;
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .toolbar h1 {
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    flex: 1;
+  }
+  .toolbar button {
+    font-family: "Poppins", sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .55rem 1.3rem;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all .25s;
+  }
+  .btn-print {
+    background: var(--dark);
+    color: #fff;
+  }
+  .btn-print:hover { background: #2a2620; }
+  .btn-reset {
+    background: transparent;
+    border: 1.5px solid var(--line) !important;
+    color: var(--soft);
+  }
+  .btn-reset:hover { border-color: var(--dark) !important; color: var(--dark); }
+
+  /* ── Feuille ── */
+  .sheet {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(0,0,0,.10);
+  }
+
+  /* ── En-tête ── */
+  .sheet-header {
+    background: var(--dark);
+    padding: 2.8rem 3rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .sheet-header__brand {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .sheet-header__logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -.02em;
+    line-height: 1;
+  }
+  .sheet-header__logo span { color: var(--accent); }
+  .sheet-header__tagline {
+    font-size: .72rem;
+    color: rgba(255,255,255,.4);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .sheet-header__info {
+    text-align: right;
+    font-size: .78rem;
+    color: rgba(255,255,255,.45);
+    line-height: 1.8;
+  }
+  .sheet-header__info a {
+    color: rgba(255,255,255,.45);
+    text-decoration: none;
+  }
+  .sheet-header__info strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -.03em;
+    line-height: 1;
+    margin-bottom: .4rem;
+  }
+
+  /* ── Bande jaune ── */
+  .sheet-band {
+    background: var(--accent);
+    padding: .7rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .sheet-band span {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+  /* Sélecteur de formule */
+  .formula-switcher {
+    display: flex;
+    gap: .4rem;
+  }
+  .formula-btn {
+    font-family: "Poppins", sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .3rem .85rem;
+    border-radius: 100px;
+    border: 1.5px solid rgba(22,20,15,.25);
+    background: transparent;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .formula-btn.active,
+  .formula-btn:hover {
+    background: var(--dark);
+    color: var(--accent);
+    border-color: var(--dark);
+  }
+
+  /* ── Corps ── */
+  .sheet-body {
+    padding: 2.4rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+
+  /* Blocs client / projet */
+  .info-block label {
+    display: block;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: .4rem;
+  }
+  .info-block input,
+  .info-block select,
+  .info-block textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: .88rem;
+    color: var(--text);
+    border: none;
+    border-bottom: 1.5px solid var(--line);
+    background: transparent;
+    width: 100%;
+    padding: .3rem 0;
+    outline: none;
+    transition: border-color .2s;
+    resize: none;
+  }
+  .info-block input:focus,
+  .info-block textarea:focus {
+    border-color: var(--accent);
+  }
+  .info-block textarea { height: 52px; }
+
+  /* ── Séparateur ── */
+  .sheet-sep {
+    margin: 0 3rem;
+    border: none;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ── Table des prestations ── */
+  .sheet-services {
+    padding: 2rem 3rem;
+  }
+  .sheet-services h3 {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 1.2rem;
+  }
+
+  .svc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .svc-table thead th {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    padding: .4rem .6rem;
+    text-align: left;
+    border-bottom: 1.5px solid var(--line);
+  }
+  .svc-table thead th:last-child,
+  .svc-table thead th:nth-child(3) { text-align: right; }
+
+  .svc-table tbody tr {
+    border-bottom: 1px solid var(--line);
+    transition: background .15s;
+  }
+  .svc-table tbody tr:hover { background: #faf9f5; }
+  .svc-table tbody tr.disabled { opacity: .35; }
+
+  .svc-table td {
+    padding: .75rem .6rem;
+    font-size: .84rem;
+    vertical-align: middle;
+  }
+  .svc-table td:last-child { text-align: right; font-weight: 600; }
+  .svc-table td:nth-child(3) { text-align: right; color: var(--soft); font-size: .8rem; }
+
+  /* Checkbox custom */
+  .svc-check {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    transition: all .2s;
+    position: relative;
+  }
+  .svc-check:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .svc-check:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 1px;
+    width: 6px; height: 10px;
+    border: 2px solid var(--dark);
+    border-top: none; border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .svc-name { font-weight: 500; }
+  .svc-desc { font-size: .75rem; color: var(--soft); margin-top: .1rem; }
+
+  /* Champ prix éditable */
+  .price-input {
+    font-family: "Poppins", sans-serif;
+    font-size: .84rem;
+    font-weight: 600;
+    color: var(--text);
+    border: none;
+    border-bottom: 1.5px dashed var(--line);
+    background: transparent;
+    text-align: right;
+    width: 90px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .price-input:focus { border-color: var(--accent); }
+
+  /* ── Totaux ── */
+  .sheet-totals {
+    padding: 0 3rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .totals-box {
+    min-width: 280px;
+    background: #faf9f5;
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .84rem;
+  }
+  .totals-row.sub { color: var(--soft); }
+  .totals-row.discount {
+    color: #c0392b;
+    font-weight: 500;
+  }
+  .totals-row.discount span:last-child { font-weight: 600; }
+  .totals-divider {
+    border: none;
+    border-top: 1.5px solid var(--line);
+    margin: .3rem 0;
+  }
+  .totals-row.total {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .totals-row.total span:last-child {
+    color: var(--dark);
+    font-size: 1.2rem;
+  }
+  .totals-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--dark);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .15rem .55rem;
+    border-radius: 100px;
+    margin-left: .5rem;
+  }
+
+  /* ── Notes ── */
+  .sheet-notes {
+    padding: 0 3rem 2rem;
+  }
+  .sheet-notes label {
+    display: block;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: .5rem;
+  }
+  .sheet-notes textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: .82rem;
+    color: var(--text);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #faf9f5;
+    width: 100%;
+    padding: .8rem 1rem;
+    outline: none;
+    resize: none;
+    height: 72px;
+    transition: border-color .2s;
+  }
+  .sheet-notes textarea:focus { border-color: var(--accent); }
+
+  /* ── Conditions ── */
+  .sheet-conditions {
+    padding: 0 3rem 2.6rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .cond-item {
+    background: #faf9f5;
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+  }
+  .cond-item label {
+    display: block;
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: .3rem;
+  }
+  .cond-item input,
+  .cond-item select {
+    font-family: "Poppins", sans-serif;
+    font-size: .82rem;
+    color: var(--text);
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-weight: 500;
+  }
+
+  /* ── Pied de page ── */
+  .sheet-footer {
+    background: var(--dark);
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sheet-footer span {
+    font-size: .72rem;
+    color: rgba(255,255,255,.35);
+  }
+  .sheet-footer strong {
+    color: rgba(255,255,255,.6);
+  }
+
+  /* ── Formule active badge ── */
+  .formula-label {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .2rem .7rem;
+    border-radius: 100px;
+    margin-left: .6rem;
+  }
+  .formula-label.pack { background: #e8f4fd; color: #1a5276; }
+  .formula-label.launch { background: #fdf2e8; color: #784212; }
+
+  /* ══════════════════════════════
+     IMPRESSION / PDF
+  ══════════════════════════════ */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none; }
+    .sheet {
+      border-radius: 0;
+      box-shadow: none;
+      max-width: 100%;
+    }
+    .formula-switcher { display: none; }
+    .svc-check { border-color: #ccc; }
+    .svc-table tbody tr.disabled { display: none; }
+    input, textarea, select { pointer-events: none; }
+    .price-input { border: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Toolbar ── -->
+<div class="toolbar no-print">
+  <h1>Brand Studio 360° — Générateur de devis</h1>
+  <button class="btn-reset" onclick="resetForm()">↺ Réinitialiser</button>
+  <button class="btn-print" onclick="window.print()">⬇ Exporter en PDF</button>
+</div>
+
+<!-- ── Feuille ── -->
+<div class="sheet">
+
+  <!-- En-tête -->
+  <div class="sheet-header">
+    <div class="sheet-header__brand">
+      <div class="sheet-header__logo">BRAND <span>STUDIO</span> 360°</div>
+      <div class="sheet-header__tagline">Agence créative — Genève, Suisse</div>
+    </div>
+    <div class="sheet-header__info">
+      <strong id="devis-num">DEVIS #001</strong>
+      info@brandstudio360.ch<br>
+      +41 79 359 54 11<br>
+      brandstudio360.ch
+    </div>
+  </div>
+
+  <!-- Bande jaune + sélecteur formule -->
+  <div class="sheet-band">
+    <span>Proposition commerciale <span id="formula-active-label"></span></span>
+    <div class="formula-switcher">
+      <button class="formula-btn active" data-formula="individual" onclick="setFormula('individual',this)">Individuel</button>
+      <button class="formula-btn" data-formula="pack" onclick="setFormula('pack',this)">Pack 360° −15%</button>
+      <button class="formula-btn" data-formula="launch" onclick="setFormula('launch',this)">Offre lancement −30%</button>
+    </div>
+  </div>
+
+  <!-- Infos client / projet -->
+  <div class="sheet-body">
+    <div class="info-block">
+      <label>Client / Entreprise</label>
+      <input type="text" id="client-name" placeholder="Nom du client ou de la société">
+    </div>
+    <div class="info-block">
+      <label>Responsable</label>
+      <input type="text" id="client-contact" placeholder="Prénom Nom">
+    </div>
+    <div class="info-block">
+      <label>Description du projet</label>
+      <textarea id="project-desc" placeholder="Résumé du projet, objectifs…"></textarea>
+    </div>
+    <div class="info-block">
+      <label>Date du devis</label>
+      <input type="date" id="devis-date">
+    </div>
+    <div class="info-block">
+      <label>Validité du devis</label>
+      <input type="text" id="devis-validity" value="30 jours">
+    </div>
+    <div class="info-block">
+      <label>Numéro de devis</label>
+      <input type="text" id="devis-num-field" placeholder="Ex. BS360-2025-001" oninput="document.getElementById('devis-num').textContent='DEVIS '+this.value">
+    </div>
+  </div>
+
+  <hr class="sheet-sep">
+
+  <!-- Prestations -->
+  <div class="sheet-services">
+    <h3>Prestations</h3>
+    <table class="svc-table">
+      <thead>
+        <tr>
+          <th style="width:32px"></th>
+          <th>Service</th>
+          <th>Tarif de base</th>
+          <th>Montant CHF</th>
+        </tr>
+      </thead>
+      <tbody id="services-body">
+        <!-- Lignes générées par JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Totaux -->
+  <div class="sheet-totals">
+    <div class="totals-box">
+      <div class="totals-row sub">
+        <span>Sous-total</span>
+        <span id="subtotal">CHF 0.—</span>
+      </div>
+      <div class="totals-row discount" id="discount-row" style="display:none">
+        <span id="discount-label">Remise Pack 360°</span>
+        <span id="discount-amount">− CHF 0.—</span>
+      </div>
+      <hr class="totals-divider">
+      <div class="totals-row total">
+        <span>Total HT <span id="formula-badge"></span></span>
+        <span id="total-amount">CHF 0.—</span>
+      </div>
+      <div class="totals-row" style="font-size:.72rem;color:var(--soft);margin-top:.2rem">
+        <span>TVA non applicable (art. 10 LTVA)</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sheet-sep">
+
+  <!-- Notes -->
+  <div class="sheet-notes">
+    <label>Notes & remarques</label>
+    <textarea id="notes" placeholder="Conditions particulières, étapes de validation, livrables spécifiques, acompte demandé…"></textarea>
+  </div>
+
+  <!-- Conditions -->
+  <div class="sheet-conditions">
+    <div class="cond-item">
+      <label>Acompte</label>
+      <input type="text" value="50% à la commande">
+    </div>
+    <div class="cond-item">
+      <label>Solde</label>
+      <input type="text" value="50% à la livraison">
+    </div>
+    <div class="cond-item">
+      <label>Délai de paiement</label>
+      <input type="text" value="30 jours net">
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <div class="sheet-footer">
+    <span>Brand Studio 360° · Genève, Suisse · <strong>info@brandstudio360.ch</strong> · +41 79 359 54 11</span>
+    <span>Ce devis est valable <strong id="footer-validity">30 jours</strong> à compter de sa date d'émission.</span>
+  </div>
+
+</div><!-- /.sheet -->
+
+<script>
+// ══════════════════════════════════════════
+//  DONNÉES SERVICES
+// ══════════════════════════════════════════
+const SERVICES = [
+  {
+    id: 'web',
+    name: 'Web Design',
+    desc: 'Site vitrine ou e-commerce sur mesure',
+    base: 500
+  },
+  {
+    id: 'brand',
+    name: 'Brand Identity',
+    desc: 'Logo, charte graphique et univers visuel complet',
+    base: 500
+  },
+  {
+    id: 'video',
+    name: 'Video Production',
+    desc: 'Film de marque, corporate ou contenu réseaux',
+    base: 600
+  },
+  {
+    id: 'photo',
+    name: 'Brand Photography',
+    desc: 'Portraits, packshots et visuels de marque',
+    base: 500
+  },
+  {
+    id: 'social',
+    name: 'Social Media Management',
+    desc: 'Stratégie, création de contenu et community management',
+    base: 600
+  },
+  {
+    id: 'interior',
+    name: 'Interior Design & Concept',
+    desc: 'Scénographie et design d\'espace',
+    base: 800
+  }
+];
+
+let currentFormula = 'individual'; // 'individual' | 'pack' | 'launch'
+
+// ── Rendu initial ──
+function renderServices() {
+  const tbody = document.getElementById('services-body');
+  tbody.innerHTML = '';
+  SERVICES.forEach((svc, i) => {
+    const tr = document.createElement('tr');
+    tr.id = 'row-' + svc.id;
+    tr.innerHTML = `
+      <td><input type="checkbox" class="svc-check" id="chk-${svc.id}" onchange="recalc()" checked></td>
+      <td>
+        <div class="svc-name">${svc.name}</div>
+        <div class="svc-desc">${svc.desc}</div>
+      </td>
+      <td>à partir de CHF ${svc.base.toLocaleString('fr-CH')}</td>
+      <td>
+        <input type="number" class="price-input" id="price-${svc.id}"
+          value="${svc.base}" min="0" step="50"
+          oninput="recalc()">
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+  recalc();
+}
+
+// ── Changer formule ──
+function setFormula(f, btn) {
+  currentFormula = f;
+  document.querySelectorAll('.formula-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  recalc();
+}
+
+// ── Recalcul ──
+function recalc() {
+  let subtotal = 0;
+  SERVICES.forEach(svc => {
+    const chk   = document.getElementById('chk-' + svc.id);
+    const price = parseFloat(document.getElementById('price-' + svc.id).value) || 0;
+    const row   = document.getElementById('row-' + svc.id);
+    if (chk && chk.checked) {
+      subtotal += price;
+      row.classList.remove('disabled');
+    } else {
+      row.classList.add('disabled');
+    }
+  });
+
+  let discountRate = 0;
+  let discountLabel = '';
+  let badgeHTML = '';
+
+  if (currentFormula === 'pack') {
+    discountRate  = 0.15;
+    discountLabel = 'Remise Pack 360° (−15 %)';
+    badgeHTML     = '<span class="totals-badge">Pack 360°</span>';
+  } else if (currentFormula === 'launch') {
+    discountRate  = 0.30;
+    discountLabel = 'Offre de lancement exclusive (−30 %)';
+    badgeHTML     = '<span class="totals-badge" style="background:#fdf2e8;color:#784212;">Lancement</span>';
+  }
+
+  const discountAmt = subtotal * discountRate;
+  const total       = subtotal - discountAmt;
+
+  const fmt = n => 'CHF ' + n.toLocaleString('fr-CH', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + '.—';
+
+  document.getElementById('subtotal').textContent = fmt(subtotal);
+  document.getElementById('total-amount').textContent = fmt(total);
+  document.getElementById('formula-badge').innerHTML = badgeHTML;
+
+  const discountRow = document.getElementById('discount-row');
+  if (discountRate > 0) {
+    discountRow.style.display = '';
+    document.getElementById('discount-label').textContent  = discountLabel;
+    document.getElementById('discount-amount').textContent = '− ' + fmt(discountAmt);
+  } else {
+    discountRow.style.display = 'none';
+  }
+}
+
+// ── Reset ──
+function resetForm() {
+  document.getElementById('client-name').value    = '';
+  document.getElementById('client-contact').value = '';
+  document.getElementById('project-desc').value   = '';
+  document.getElementById('devis-num-field').value = '';
+  document.getElementById('devis-num').textContent = 'DEVIS #001';
+  document.getElementById('notes').value = '';
+  SERVICES.forEach(svc => {
+    document.getElementById('chk-'   + svc.id).checked = true;
+    document.getElementById('price-' + svc.id).value   = svc.base;
+    document.getElementById('row-'   + svc.id).classList.remove('disabled');
+  });
+  setFormula('individual', document.querySelector('[data-formula="individual"]'));
+}
+
+// ── Date du jour par défaut ──
+(function init() {
+  const today = new Date();
+  const yyyy  = today.getFullYear();
+  const mm    = String(today.getMonth() + 1).padStart(2, '0');
+  const dd    = String(today.getDate()).padStart(2, '0');
+  document.getElementById('devis-date').value = `${yyyy}-${mm}-${dd}`;
+  renderServices();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolex Motion Design — Brand Studio 360°</title>
+<meta name="description" content="Étude de cas Rolex : animation produit et motion design réalisés par Brand Studio 360°. Une vidéo cinématique qui sublime l'horlogerie de prestige.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .proj-hero-fs {
+    position: relative; width: 100%; height: 100vh;
+    overflow: hidden; background: #0a0a0a;
+  }
+  .proj-hero-fs video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .proj-hero-fs__veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.72) 0%, rgba(10,10,10,.18) 45%, transparent 100%);
+    z-index: 1;
+  }
+  .proj-hero-fs__text {
+    position: absolute;
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    left: clamp(1.4rem, 5vw, 5rem);
+    z-index: 2; color: #fff;
+  }
+  .proj-hero-fs__text .back {
+    display: inline-block; font-size: .78rem;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.55); margin-bottom: 1.2rem; transition: color .3s;
+  }
+  .proj-hero-fs__text .back:hover { color: #fff; }
+  .proj-hero-fs__text .eyebrow { display: block; color: rgba(255,255,255,.5); margin-bottom: .4rem; }
+  .proj-hero-fs__text h1 {
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 600;
+    color: #fff; letter-spacing: -0.02em; line-height: 1.1;
+  }
+  .proj-hero-fs .vid-sound-btn {
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    right: clamp(1.4rem, 5vw, 5rem); left: auto;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" aria-label="Navigation principale">
+  <div class="wrap"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projets.html" class="active">Réalisations</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>info@brandstudio360.ch</span></div>
+</nav>
+
+<!-- HERO PLEIN ÉCRAN -->
+<section class="proj-hero-fs">
+  <video id="vid-rolex-hero" src="assets/videos/rolex-motion.mov"
+         muted playsinline preload="auto" loop autoplay></video>
+  <div class="proj-hero-fs__veil"></div>
+
+  <div class="proj-hero-fs__text">
+    <a class="back" href="projets.html">← Tous les projets</a>
+    <span class="eyebrow">Projet</span>
+    <h1>Rolex — Motion Design</h1>
+  </div>
+
+  <button class="vid-sound-btn" id="vid-rolex-hero-btn" aria-label="Activer le son">
+    <svg id="vid-rolex-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg id="vid-rolex-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+</section>
+
+<!-- BODY -->
+<section class="section">
+  <div class="wrap proj-body">
+    <div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le contexte</span>
+        <h2 style="margin-top:.6rem">Sublimer l'excellence horlogère par le mouvement.</h2>
+        <p>Rolex incarne depuis plus d'un siècle la précision absolue et l'excellence artisanale. Pour mettre en valeur la montre dans toute sa sophistication, une approche purement visuelle s'imposait : laisser le produit parler par lui-même à travers une animation cinématique, sans artifices.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">La solution</span>
+        <h2 style="margin-top:.6rem">Un motion design au service de la matière.</h2>
+        <p>Brand Studio 360° a conçu une animation produit épurée qui met en scène la montre dans un environnement graphique minimaliste. Chaque mouvement, chaque reflet, chaque plan rapproché a été composé pour révéler les détails de fabrication. La fluidité de l'animation traduit la précision du mécanisme.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le résultat</span>
+        <h2 style="margin-top:.6rem">Une animation qui élève la perception de marque.</h2>
+        <p>La vidéo est utilisée comme contenu premium sur les canaux digitaux de la marque. Elle génère un fort engagement organique et renforce le positionnement haut de gamme auprès d'une clientèle exigeante. Un travail de motion design qui prouve qu'en horlogerie, chaque seconde compte — y compris à l'image.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="reveal">
+        <span class="eyebrow">Détails du projet</span>
+        <div class="proj-meta" style="margin-top:1.4rem">
+          <div class="proj-meta__row"><span>Client</span><span>Rolex</span></div>
+          <div class="proj-meta__row"><span>Année</span><span>2025</span></div>
+          <div class="proj-meta__row"><span>Secteur</span><span>Horlogerie de prestige</span></div>
+          <div class="proj-meta__row"><span>Format</span><span>Animation produit · 16:9</span></div>
+          <div class="proj-meta__row"><span>Durée</span><span>2 semaines</span></div>
+          <div class="proj-meta__row"><span>Diffusion</span><span>Web · Réseaux sociaux · Campagne digitale</span></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Motion Design</span>
+          <span class="tag">Animation Produit</span>
+          <span class="tag">Direction artistique</span>
+          <span class="tag">Post-production</span>
+        </div>
+        <div style="margin-top:2.2rem">
+          <a class="btn btn--dark" href="configurateur.html">Un projet similaire ? <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="proj-gallery">
+      <img class="wide reveal" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=75" alt="Rolex — Motion Design">
+      <img class="reveal" src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=75" alt="Horlogerie de prestige">
+      <img class="reveal d1" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=75" alt="Détail montre">
+    </div>
+  </div>
+</section>
+
+<section class="section bg-2">
+  <div class="wrap cta-band reveal">
+    <h2>Une animation pour votre produit ?</h2>
+    <p>Mettez en valeur votre produit avec un motion design cinématique sur mesure.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--accent" href="configurateur.html">Estimer mon projet <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
+      <div><h4>Navigation</h4><div class="footer-links"><a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="services.html">Services</a><a href="projets.html">Réalisations</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html">Estimer mon projet</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span><span>Stratégie · Création · Déploiement</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const vid    = document.getElementById('vid-rolex-hero');
+  const btn    = document.getElementById('vid-rolex-hero-btn');
+  const iMute  = document.getElementById('vid-rolex-mute');
+  const iSound = document.getElementById('vid-rolex-sound');
+  if (!vid || !btn) return;
+  let muted = true;
+
+  btn.addEventListener('click', function () {
+    muted = !muted;
+    vid.muted = muted;
+    iMute.style.display  = muted ? '' : 'none';
+    iSound.style.display = muted ? 'none' : '';
+  });
+
+  if (sessionStorage.getItem('rolex_sound')) {
+    sessionStorage.removeItem('rolex_sound');
+    vid.muted = false; muted = false;
+    iMute.style.display  = 'none';
+    iSound.style.display = '';
+  }
+})();
+</script>
+</body>
+</html>

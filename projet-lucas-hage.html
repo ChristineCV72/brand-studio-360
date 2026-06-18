@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUCAS-HAGE bijoutier — Brand Studio 360°</title>
+<meta name="description" content="Étude de cas LUCAS-HAGE : film de marque pour un créateur et artisan bijoutier suisse. Vidéo production par Brand Studio 360°.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── Hero plein écran (style intro) ── */
+  .proj-hero-fs {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .proj-hero-fs video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Voile gradient bas → transparence haute */
+  .proj-hero-fs__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,10,10,.72) 0%,
+      rgba(10,10,10,.18) 45%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  /* Textes en bas à gauche */
+  .proj-hero-fs__text {
+    position: absolute;
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    left: clamp(1.4rem, 5vw, 5rem);
+    z-index: 2;
+    color: #fff;
+  }
+  .proj-hero-fs__text .back {
+    display: inline-block;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 1.2rem;
+    transition: color .3s;
+  }
+  .proj-hero-fs__text .back:hover { color: #fff; }
+  .proj-hero-fs__text .eyebrow {
+    display: block;
+    color: rgba(255,255,255,.5);
+    margin-bottom: .4rem;
+  }
+  .proj-hero-fs__text h1 {
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  /* Bouton son positionné bas-droite dans le hero */
+  .proj-hero-fs .vid-sound-btn {
+    bottom: clamp(2rem, 5vw, 3.5rem);
+    right: clamp(1.4rem, 5vw, 5rem);
+    left: auto;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" aria-label="Navigation principale">
+  <div class="wrap"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projets.html" class="active">Réalisations</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>info@brandstudio360.ch</span></div>
+</nav>
+
+<!-- HERO PLEIN ÉCRAN -->
+<section class="proj-hero-fs">
+  <video id="vid-lh-hero" src="assets/videos/hage-bijoutier.mp4"
+         muted playsinline preload="auto" loop autoplay></video>
+  <div class="proj-hero-fs__veil"></div>
+
+  <div class="proj-hero-fs__text">
+    <a class="back" href="projets.html">← Tous les projets</a>
+    <span class="eyebrow">Projet</span>
+    <h1>LUCAS-HAGE — bijoutier</h1>
+  </div>
+
+  <!-- Bouton son bas-droite -->
+  <button class="vid-sound-btn" id="vid-lh-hero-btn" aria-label="Activer le son">
+    <svg id="vid-lh-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg id="vid-lh-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+</section>
+
+<!-- BODY -->
+<section class="section">
+  <div class="wrap proj-body">
+    <div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le contexte</span>
+        <h2 style="margin-top:.6rem">Un artisan d'exception, une histoire à raconter.</h2>
+        <p>LUCAS-HAGE est un créateur bijoutier suisse dont le travail conjugue savoir-faire artisanal et sensibilité contemporaine. Chaque pièce est unique, façonnée à la main avec une exigence rare. L'enjeu pour Brand Studio 360° : capturer cette singularité dans un film de marque qui reflète l'âme de l'atelier et l'identité de l'artisan.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">La solution</span>
+        <h2 style="margin-top:.6rem">Un film de marque à la hauteur de l'artisanat.</h2>
+        <p>Nous avons conçu un film immersif qui plonge le spectateur au cœur de l'atelier. Gestes précis, matières précieuses, lumière travaillée : chaque plan est composé pour révéler la poésie du métier. Le montage, sobre et rythmé, met en valeur la gestuelle de l'artisan et l'émotion qui se dégage de chaque création. Une narration visuelle sans paroles, universelle et mémorable.</p>
+      </div>
+      <div class="proj-block reveal">
+        <span class="eyebrow">Le résultat</span>
+        <h2 style="margin-top:.6rem">Une visibilité amplifiée, une clientèle conquise.</h2>
+        <p>Diffusé sur YouTube, Instagram et lors d'expositions, le film a permis à LUCAS-HAGE de toucher une audience bien au-delà de son cercle habituel. Les demandes de commandes personnalisées ont augmenté significativement, et la notoriété de la marque s'est étendue à l'international. Le film est aujourd'hui l'outil de communication central de l'artisan.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="reveal">
+        <span class="eyebrow">Détails du projet</span>
+        <div class="proj-meta" style="margin-top:1.4rem">
+          <div class="proj-meta__row"><span>Client</span><span>LUCAS-HAGE</span></div>
+          <div class="proj-meta__row"><span>Année</span><span>2025</span></div>
+          <div class="proj-meta__row"><span>Secteur</span><span>Joaillerie &amp; Artisanat</span></div>
+          <div class="proj-meta__row"><span>Format</span><span>Film de marque · 16:9</span></div>
+          <div class="proj-meta__row"><span>Durée</span><span>4 semaines</span></div>
+          <div class="proj-meta__row"><span>Diffusion</span><span>YouTube · Instagram · Expositions</span></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Video Production</span>
+          <span class="tag">Film de marque</span>
+          <span class="tag">Direction artistique</span>
+          <span class="tag">Montage</span>
+        </div>
+        <div style="margin-top:2.2rem">
+          <a class="btn btn--dark" href="configurateur.html?service=video-production">Un projet similaire ? <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="wrap">
+    <div class="proj-gallery">
+      <img class="wide reveal" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=75" alt="Bijoux LUCAS-HAGE">
+      <img class="reveal" src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=75" alt="Atelier bijoutier">
+      <img class="reveal d1" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=75" alt="Création artisanale">
+    </div>
+  </div>
+</section>
+
+<section class="section bg-2">
+  <div class="wrap cta-band reveal">
+    <h2>Envie d'un film pour votre marque ?</h2>
+    <p>Estimez votre projet vidéo en quelques clics, ou parlons-en directement.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--accent" href="configurateur.html?service=video-production">Estimer mon projet <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
+      <div><h4>Navigation</h4><div class="footer-links"><a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="services.html">Services</a><a href="projets.html">Réalisations</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html?service=video-production">Estimer mon projet</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span><span>Stratégie · Création · Déploiement</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Son — vidéo locale LUCAS-HAGE hero */
+(function () {
+  const vid    = document.getElementById('vid-lh-hero');
+  const btn    = document.getElementById('vid-lh-hero-btn');
+  const iMute  = document.getElementById('vid-lh-mute');
+  const iSound = document.getElementById('vid-lh-sound');
+  if (!vid || !btn) return;
+  let muted = true;
+  btn.addEventListener('click', function () {
+    muted = !muted;
+    vid.muted = muted;
+    iMute.style.display  = muted ? '' : 'none';
+    iSound.style.display = muted ? 'none' : '';
+  });
+})();
+</script>
+</body>
+</html>

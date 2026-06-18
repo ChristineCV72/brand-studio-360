@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projets — Brand Studio 360°</title>
+<meta name="description" content="Sélection de projets : branding, web design, social media, vidéo, photographie et interior design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+
+<nav class="nav-overlay" aria-label="Navigation principale">
+  <div class="wrap"><ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projets.html" class="active">Réalisations</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>info@brandstudio360.ch</span></div>
+</nav>
+
+<section class="page-top wrap section--tight">
+  <span class="eyebrow reveal">Projets</span>
+  <h1 class="display reveal d1" style="margin-top:1rem">Nos réalisations.</h1>
+
+  <div class="filters reveal d2">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="web">Web Design</button>
+    <button class="filter" data-filter="brand">Brand Identity</button>
+    <button class="filter" data-filter="social">Social Media</button>
+    <button class="filter" data-filter="video">Video Production</button>
+    <button class="filter" data-filter="photo">Photography</button>
+    <button class="filter" data-filter="interior">Interior Design</button>
+    <button class="filter" data-filter="motion">Animation Produit</button>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="wrap">
+    <div class="proj-grid">
+
+      <a class="proj-card span-8 reveal" data-cat="brand,web,photo,social" href="projet-fr-coiffure.html">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=70" alt="F.R Coiffure">
+        <div class="proj-card__meta"><div class="proj-card__cat">Brand Identity · Website · Photo</div><div class="proj-card__name">F.R Coiffure</div></div>
+      </a>
+
+      <a class="proj-card span-4 tall reveal d1" data-cat="photo" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=70" alt="Maison Horlogère">
+        <div class="proj-card__meta"><div class="proj-card__cat">Photography</div><div class="proj-card__name">Maison Horlogère</div></div>
+      </a>
+
+      <a class="proj-card span-4 reveal" data-cat="social" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=70" alt="Cave & Vins">
+        <div class="proj-card__meta"><div class="proj-card__cat">Social Media</div><div class="proj-card__name">Cave &amp; Vins</div></div>
+      </a>
+
+      <!-- FR Coiffure — site web (screenshot live) -->
+      <a class="proj-card span-8 reveal" data-cat="web" href="https://christinecv72.github.io/Fr-coiffure-maquette-B/" target="_blank" rel="noopener">
+        <img
+          src="https://image.thum.io/get/width/1200/crop/800/noanimate/https://christinecv72.github.io/Fr-coiffure-maquette-B/"
+          alt="F.R Coiffure — Site internet"
+          loading="lazy">
+        <div class="proj-card__meta">
+          <div class="proj-card__cat">Web Design · Site internet</div>
+          <div class="proj-card__name">F.R Coiffure — Site internet</div>
+        </div>
+      </a>
+
+      <a class="proj-card span-4 reveal d1" data-cat="web,brand" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=70" alt="Atelier Studio">
+        <div class="proj-card__meta"><div class="proj-card__cat">Web Design</div><div class="proj-card__name">Atelier Studio</div></div>
+      </a>
+
+      <a class="proj-card span-4 reveal d2" data-cat="interior" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=70" alt="Concept Store">
+        <div class="proj-card__meta"><div class="proj-card__cat">Interior Design</div><div class="proj-card__name">Concept Store</div></div>
+      </a>
+
+      <div class="proj-card--video span-8 reveal" data-cat="video">
+        <div class="proj-card--video__frame">
+          <iframe
+            id="yt-lucas"
+            src="https://www.youtube.com/embed/OWbqgk3GDpI?autoplay=1&mute=1&loop=1&playlist=OWbqgk3GDpI&controls=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
+            title="LUCAS-HAGE — bijoutier"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+          </iframe>
+          <!-- Masque le titre/avatar YouTube en haut à gauche -->
+          <div class="yt-mask yt-mask--top"></div>
+          <!-- Masque le bouton "Regarder sur YouTube" en bas -->
+          <div class="yt-mask yt-mask--bottom"></div>
+          <!-- Couche transparente cliquable (l'iframe bloque les clics du parent) -->
+          <a href="projet-lucas-hage.html" class="vid-click-layer" aria-label="Voir le projet LUCAS-HAGE"></a>
+          <!-- Overlay hover blanc + titre centré -->
+          <div class="proj-card--video__hover">
+            <span class="proj-card--video__hover-cat">Vidéo Production</span>
+            <span class="proj-card--video__hover-title">LUCAS-HAGE<br>bijoutier</span>
+          </div>
+          <!-- Texte overlay bas de vidéo -->
+          <div class="yt-overlay-text">
+            <span class="yt-overlay-text__cat">Vidéo Production — Créateur et artisan Suisse</span>
+            <span class="yt-overlay-text__name">LUCAS-HAGE — bijoutier</span>
+          </div>
+          <!-- Bouton son custom -->
+          <button class="yt-sound-btn" id="yt-sound-btn" aria-label="Activer le son">
+            <svg id="yt-icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+            <svg id="yt-icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <a class="proj-card span-4 reveal" data-cat="brand" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=70" alt="Identité Café">
+        <div class="proj-card__meta"><div class="proj-card__cat">Brand Identity</div><div class="proj-card__name">Café &amp; Co</div></div>
+      </a>
+
+      <a class="proj-card span-4 reveal d1" data-cat="photo,brand" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=70" alt="Boutique Mode">
+        <div class="proj-card__meta"><div class="proj-card__cat">Photography</div><div class="proj-card__name">Boutique Mode</div></div>
+      </a>
+
+      <a class="proj-card span-4 reveal d2" data-cat="web,social" href="projets.html">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=70" alt="Startup Tech">
+        <div class="proj-card__meta"><div class="proj-card__cat">Web · Social</div><div class="proj-card__name">Startup Tech</div></div>
+      </a>
+
+      <!-- Airpad — vidéo locale -->
+      <div class="proj-card--video span-8 reveal" data-cat="video" onclick="sessionStorage.setItem('airpad_sound','1');window.location='projet-airpad.html'" style="cursor:pointer;">
+        <div class="proj-card--video__frame" style="background:transparent;">
+          <video
+            id="vid-airpad-proj"
+            src="assets/videos/airpad.mp4"
+            muted playsinline preload="auto" loop autoplay
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;">
+          </video>
+          <!-- Overlay hover -->
+          <div class="proj-card--video__hover">
+            <span class="proj-card--video__hover-cat">Film de marque</span>
+            <span class="proj-card--video__hover-title">Airpad<br>Film aérien</span>
+          </div>
+          <!-- Texte overlay bas de vidéo -->
+          <div class="yt-overlay-text">
+            <span class="yt-overlay-text__cat">Video Production — Film de marque</span>
+            <span class="yt-overlay-text__name">Airpad — Film aérien</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rolex — Animation produit -->
+      <div class="proj-card--video span-8 reveal" data-cat="motion" onclick="sessionStorage.setItem('rolex_sound','1');window.location='projet-rolex-motion.html'" style="cursor:pointer;">
+        <div class="proj-card--video__frame" style="background:#0a0a0a;">
+          <video
+            id="vid-rolex-proj"
+            src="assets/videos/rolex-motion.mov"
+            muted playsinline preload="auto" loop autoplay
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;">
+          </video>
+          <div class="yt-overlay-text">
+            <span class="yt-overlay-text__cat">Animation Produit — Motion Design</span>
+            <span class="yt-overlay-text__name">Rolex — Motion Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabinet dentaire Versoix — vidéo locale -->
+      <div class="proj-card--video span-8 reveal" data-cat="video" onclick="sessionStorage.setItem('dent_sound','1');window.location='projet-cabinet-dentaire.html'" style="cursor:pointer;">
+        <div class="proj-card--video__frame" style="background:transparent;">
+          <video
+            id="vid-dent-proj"
+            src="assets/videos/cabinet-dentaire.mp4"
+            muted playsinline preload="auto" loop autoplay
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;transform:scale(1.13);transform-origin:center center;">
+          </video>
+          <!-- Overlay hover blanc + titre centré -->
+          <div class="proj-card--video__hover">
+            <span class="proj-card--video__hover-cat">Film corporate</span>
+            <span class="proj-card--video__hover-title">Cabinet dentaire<br>Versois</span>
+          </div>
+          <!-- Texte overlay bas de vidéo -->
+          <div class="yt-overlay-text">
+            <span class="yt-overlay-text__cat">Film corporate</span>
+            <span class="yt-overlay-text__name">Cabinet dentaire Versoix</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cta-band reveal">
+    <h2>Votre projet, le prochain ?</h2>
+    <p>Estimez votre projet en quelques clics ou contactez-nous directement.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--dark" href="configurateur.html">Estimer mon projet <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
+      <div><h4>Navigation</h4><div class="footer-links"><a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="services.html">Services</a><a href="projets.html">Réalisations</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html">Estimer mon projet</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span><span>Stratégie · Création · Déploiement</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Son — LUCAS-HAGE YouTube */
+(function () {
+  const iframe = document.getElementById('yt-lucas');
+  const btn    = document.getElementById('yt-sound-btn');
+  const iconMute  = document.getElementById('yt-icon-mute');
+  const iconSound = document.getElementById('yt-icon-sound');
+  if (!iframe || !btn) return;
+
+  let muted = true;
+
+  function send(func) {
+    iframe.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: func, args: [] }), '*'
+    );
+  }
+
+  btn.addEventListener('click', function () {
+    if (muted) {
+      send('unMute');
+      iconMute.style.display  = 'none';
+      iconSound.style.display = '';
+    } else {
+      send('mute');
+      iconMute.style.display  = '';
+      iconSound.style.display = 'none';
+    }
+    muted = !muted;
+  });
+})();
+</script>
+</body>
+</html>
