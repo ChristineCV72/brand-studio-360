@@ -113,7 +113,7 @@
       </a>
       <a class="svc-row reveal" href="service-animation-produit.html">
         <span class="svc-row__num">06</span>
-        <span class="svc-row__title">Animation Produit</span>
+        <span class="svc-row__title">Motion Design</span>
         <span class="svc-row__desc">Motion design, animations 3D et vidéos produit cinématiques pour sublimer vos créations.</span>
         <span class="svc-row__go" aria-hidden="true">↗</span>
       </a>
@@ -244,13 +244,22 @@
   const iSound= document.getElementById('yt-hero-sound');
   if(!text||!btn) return;
   let muted = true;
-  btn.addEventListener('click', function(){
-    muted = !muted;
+
+  function setSound(on){
+    muted = !on;
     text.muted = muted;
-    if(!muted){ text.play().catch(function(){}); }
+    if(on){ text.play().catch(function(){}); }
     iMute.style.display  = muted ? '' : 'none';
     iSound.style.display = muted ? 'none' : '';
-  });
+  }
+
+  /* Si l'utilisateur vient de l'intro (a déjà cliqué) → son automatique */
+  if(sessionStorage.getItem('autoplay_sound')){
+    sessionStorage.removeItem('autoplay_sound');
+    setSound(true);
+  }
+
+  btn.addEventListener('click', function(){ setSound(muted); });
 })();
 </script>
 </body>
