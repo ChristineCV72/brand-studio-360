@@ -205,7 +205,7 @@
     },
 
     "animation-produit": {
-      label: "Animation Produit", icon: I.bulb,
+      label: "Motion Design", icon: I.bulb,
       steps: [
         { key: "type", title: "Quel type d'animation ?", hint: "Choisissez le format qui correspond le mieux à votre produit.", kind: "cards", options: [
           { id: "motion", label: "Motion design", icon: I.bulb, base: 800 },

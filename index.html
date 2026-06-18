@@ -51,6 +51,11 @@
       muted playsinline preload="auto" loop autoplay
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;z-index:2;pointer-events:none;">
     </video>
+    <style>
+      @media (max-width: 640px) {
+        #hero-text { object-fit: contain !important; }
+      }
+    </style>
     <!-- Bouton son -->
     <button class="yt-sound-btn" id="yt-hero-btn" aria-label="Activer le son">
       <svg id="yt-hero-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -236,6 +241,14 @@
 })();
 </script>
 <script>
+/* Démarrage forcé des vidéos sur mobile */
+(function(){
+  ['hero-video','hero-text'].forEach(function(id){
+    var v = document.getElementById(id);
+    if(v) v.play().catch(function(){});
+  });
+})();
+
 /* Bouton son — active la musique du texte animé (les vidéos bouclent via l'attribut loop) */
 (function(){
   const text  = document.getElementById('hero-text');
