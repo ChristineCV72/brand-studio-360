@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "brandstudio2",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "."],
+      "autoPort": true
+    }
+  ]
+}
