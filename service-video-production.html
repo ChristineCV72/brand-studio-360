@@ -25,7 +25,7 @@
     <li><a href="tarifs.html">Tarifs</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul></div>
-  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>contact@brandstudio360.ch</span></div>
+  <div class="nav-foot"><span>Brand Studio 360° — Agence créative</span><span>info@brandstudio360.ch</span></div>
 </nav>
 
 <section class="page-top wrap section--tight">
@@ -43,26 +43,33 @@
       </div>
     </div>
   </div>
-  <div class="media-full reveal" style="position:relative">
-    <video
-      id="vid-production-svc"
-      src="assets/videos/video-production-2-behind-the-scene.mp4"
-      muted playsinline preload="auto" loop autoplay>
-    </video>
-    <div class="yt-overlay-text">
-      <span class="yt-overlay-text__cat">Vidéo Production — Behind the scene</span>
-      <span class="yt-overlay-text__name">Du tournage au montage</span>
+  <div class="media-yt media-yt--hero reveal">
+    <div class="media-yt__frame">
+      <iframe
+        id="yt-svc"
+        src="https://www.youtube.com/embed/OWbqgk3GDpI?autoplay=1&mute=1&loop=1&playlist=OWbqgk3GDpI&controls=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3&disablekb=1"
+        title="LUCAS-HAGE — bijoutier"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+      <div class="yt-mask yt-mask--top"></div>
+      <div class="yt-mask yt-mask--bottom"></div>
+      <button class="yt-sound-btn" id="yt-sound-btn-svc" aria-label="Activer le son">
+        <svg id="yt-svc-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+        <svg id="yt-svc-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
     </div>
-    <button class="vid-sound-btn" id="vid-production-svc-btn" aria-label="Activer le son">
-      <svg id="vid-production-svc-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-      </svg>
-      <svg id="vid-production-svc-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
-      </svg>
-    </button>
+    <div class="media-yt__caption">
+      <span class="media-yt__service">Vidéo Production — Créateur et artisan Suisse</span>
+      <span class="media-yt__client">LUCAS-HAGE — bijoutier</span>
+    </div>
   </div>
 </section>
 
@@ -75,6 +82,38 @@
       <div class="incl-item reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M7 4v4M17 4v4M7 20v-4M17 20v-4"/></svg><div><h4>Montage &amp; étalonnage</h4><p>Rythme, son et colorimétrie au service de votre message.</p></div></div>
       <div class="incl-item reveal d1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.7 7.4-4.3M8.3 13.3l7.4 4.3"/></svg><div><h4>Formats multi-plateformes</h4><p>Déclinaisons web, réseaux et 16:9 prêtes à diffuser.</p></div></div>
     </div>
+  </div>
+</section>
+
+<!-- RÉALISATION 2 : Cabinet dentaire Versois -->
+<section class="section--tight">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:0">
+      <span class="eyebrow">Réalisation</span>
+      <h2 style="margin-top:.6rem">Film corporate</h2>
+    </div>
+  </div>
+  <div class="media-vid-wrap reveal">
+    <video
+      id="vid-dentaire"
+      src="assets/videos/cabinet-dentaire.mp4"
+      muted playsinline preload="auto" loop autoplay
+      style="transform:scale(1.13);transform-origin:center center;">
+    </video>
+    <div class="yt-overlay-text">
+      <span class="yt-overlay-text__cat">Film corporate</span>
+      <span class="yt-overlay-text__name">Cabinet dentaire Versois</span>
+    </div>
+    <button class="vid-sound-btn" id="vid-dentaire-btn" aria-label="Activer le son">
+      <svg id="vid-dentaire-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+      <svg id="vid-dentaire-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+    </button>
   </div>
 </section>
 
@@ -95,9 +134,9 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
-      <div><img src="assets/logo/logo-horizontal.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
+      <div><img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°"><p class="footer-tagline">Nous réunissons stratégie, design, contenu, digital et espaces pour créer des marques cohérentes sur tous les points de contact.</p></div>
       <div><h4>Navigation</h4><div class="footer-links"><a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="services.html">Services</a><a href="projets.html">Réalisations</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a></div></div>
-      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:contact@brandstudio360.ch">contact@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html?service=video-production">Estimer mon projet</a></div></div>
+      <div><h4>Contact</h4><div class="footer-links"><a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a><a href="tel:+41793595411">+41 79 359 54 11</a><a href="configurateur.html?service=video-production">Estimer mon projet</a></div></div>
     </div>
     <div class="footer-bottom"><span>© <span data-year>2026</span> Brand Studio 360°. Tous droits réservés.</span><span>Stratégie · Création · Déploiement</span></div>
   </div>
@@ -106,10 +145,29 @@
 <script src="js/main.js"></script>
 <script>
 (function () {
-  const vid    = document.getElementById('vid-production-svc');
-  const btn    = document.getElementById('vid-production-svc-btn');
-  const iMute  = document.getElementById('vid-production-svc-mute');
-  const iSound = document.getElementById('vid-production-svc-sound');
+  const iframe = document.getElementById('yt-svc');
+  const btn    = document.getElementById('yt-sound-btn-svc');
+  const iconMute  = document.getElementById('yt-svc-mute');
+  const iconSound = document.getElementById('yt-svc-sound');
+  if (!iframe || !btn) return;
+  let muted = true;
+  btn.addEventListener('click', function () {
+    iframe.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: muted ? 'unMute' : 'mute', args: [] }), '*'
+    );
+    iconMute.style.display  = muted ? 'none' : '';
+    iconSound.style.display = muted ? '' : 'none';
+    muted = !muted;
+  });
+})();
+</script>
+<script>
+/* Son — Cabinet dentaire Versois (vidéo locale) */
+(function () {
+  const vid    = document.getElementById('vid-dentaire');
+  const btn    = document.getElementById('vid-dentaire-btn');
+  const iMute  = document.getElementById('vid-dentaire-mute');
+  const iSound = document.getElementById('vid-dentaire-sound');
   if (!vid || !btn) return;
   let muted = true;
   btn.addEventListener('click', function () {
