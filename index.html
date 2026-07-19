@@ -7,7 +7,7 @@
 <meta name="description" content="Brand Studio 360° crée des marques cohérentes, visibles et mémorables. Branding, web design, vidéo, photo, réseaux sociaux et interior concept sous un même toit.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
   </div>
   <div class="nav-foot">
     <span>Brand Studio 360° — Agence créative</span>
-    <span>info@brandstudio360.ch</span>
+    <span>contact@brandstudio360.ch</span>
   </div>
 </nav>
 
@@ -44,32 +44,9 @@
       muted playsinline preload="auto" loop autoplay
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;z-index:1;">
     </video>
-    <!-- Texte animé transparent (par-dessus la vidéo) + musique -->
-    <video
-      id="hero-text"
-      src="assets/videos/hero-texte.webm"
-      muted playsinline preload="auto" loop autoplay
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;z-index:2;pointer-events:none;mix-blend-mode:screen;">
-    </video>
-    <style>
-      @media (max-width: 640px) {
-        #hero-text { object-fit: contain !important; }
-      }
-    </style>
-    <!-- Bouton son -->
-    <button class="yt-sound-btn" id="yt-hero-btn" aria-label="Activer le son">
-      <svg id="yt-hero-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-      </svg>
-      <svg id="yt-hero-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:none">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
-      </svg>
-    </button>
   </div>
   <div class="hero-video__logo">
-    <img src="assets/logo/logo-blanc.png" alt="Brand Studio 360°">
+    <img src="assets/logo/logo-horizontal.png" alt="Brand Studio 360°">
   </div>
   <div class="hero-video__scroll"><span>Scroll</span><span class="line"></span></div>
 </section>
@@ -126,6 +103,24 @@
         <span class="svc-row__num">07</span>
         <span class="svc-row__title">Interior Design &amp; Concept</span>
         <span class="svc-row__desc">Scénographie et design d'espace pour donner vie à votre marque physique.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-podcast-studio.html">
+        <span class="svc-row__num">08</span>
+        <span class="svc-row__title">Studio de Podcast</span>
+        <span class="svc-row__desc">Enregistrement et production de podcasts de marque, du concept à la diffusion.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-event-experience.html">
+        <span class="svc-row__num">09</span>
+        <span class="svc-row__title">Event Experience</span>
+        <span class="svc-row__desc">Conception et production d'événements de marque, du concept à l'expérience immersive.</span>
+        <span class="svc-row__go" aria-hidden="true">↗</span>
+      </a>
+      <a class="svc-row reveal" href="service-ai-creative-campaigns.html">
+        <span class="svc-row__num">10</span>
+        <span class="svc-row__title">AI Creative Campaigns</span>
+        <span class="svc-row__desc">Campagnes créatives génératives par IA, sans limite pour la création.</span>
         <span class="svc-row__go" aria-hidden="true">↗</span>
       </a>
     </div>
@@ -218,7 +213,7 @@
       <div>
         <h4>Contact</h4>
         <div class="footer-links">
-          <a href="mailto:info@brandstudio360.ch">info@brandstudio360.ch</a>
+          <a href="mailto:contact@brandstudio360.ch">contact@brandstudio360.ch</a>
           <a href="tel:+41793595411">+41 79 359 54 11</a>
           <a href="configurateur.html">Estimer mon projet</a>
         </div>
@@ -241,38 +236,10 @@
 })();
 </script>
 <script>
-/* Démarrage forcé des vidéos sur mobile */
+/* Démarrage forcé de la vidéo hero sur mobile */
 (function(){
-  ['hero-video','hero-text'].forEach(function(id){
-    var v = document.getElementById(id);
-    if(v) v.play().catch(function(){});
-  });
-})();
-
-/* Bouton son — active la musique du texte animé (les vidéos bouclent via l'attribut loop) */
-(function(){
-  const text  = document.getElementById('hero-text');
-  const btn   = document.getElementById('yt-hero-btn');
-  const iMute = document.getElementById('yt-hero-mute');
-  const iSound= document.getElementById('yt-hero-sound');
-  if(!text||!btn) return;
-  let muted = true;
-
-  function setSound(on){
-    muted = !on;
-    text.muted = muted;
-    if(on){ text.play().catch(function(){}); }
-    iMute.style.display  = muted ? '' : 'none';
-    iSound.style.display = muted ? 'none' : '';
-  }
-
-  /* Si l'utilisateur vient de l'intro (a déjà cliqué) → son automatique */
-  if(sessionStorage.getItem('autoplay_sound')){
-    sessionStorage.removeItem('autoplay_sound');
-    setSound(true);
-  }
-
-  btn.addEventListener('click', function(){ setSound(muted); });
+  var v = document.getElementById('hero-video');
+  if(v) v.play().catch(function(){});
 })();
 </script>
 </body>

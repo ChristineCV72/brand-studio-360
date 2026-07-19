@@ -1,4 +1,16 @@
 /* BRAND STUDIO 360° — Interactions globales */
+
+/* ── Curseur étoile premium (desktop uniquement) ── */
+(function () {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+  var s = document.createElement('script');
+  var base = (document.currentScript && document.currentScript.src)
+    ? document.currentScript.src.replace(/main\.js.*$/, 'cursor.js')
+    : 'js/cursor.js';
+  s.src = base;
+  document.head.appendChild(s);
+})();
+
 (function () {
   "use strict";
 
@@ -49,9 +61,11 @@
     reveals.forEach((el) => el.classList.add("in"));
   }
 
-  /* ---- Project filters ---- */
+  /* ---- Filtres (projets + sections filtrables) ---- */
   const filters = document.querySelectorAll(".filter");
-  const cards = document.querySelectorAll(".proj-card[data-cat], .proj-card--video[data-cat]");
+  const cards = document.querySelectorAll(
+    ".proj-card[data-cat], .proj-card--video[data-cat], .filter-item[data-cat]"
+  );
   if (filters.length && cards.length) {
     filters.forEach((btn) => {
       btn.addEventListener("click", () => {
